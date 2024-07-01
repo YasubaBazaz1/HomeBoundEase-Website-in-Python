@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .Lcontainer,
+        .Rcontainer {
+            flex: 1;
+            margin: 10px;
+        }
+        caption {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <!-- Display user profiles -->
+    <h1>Admin Dashboard</h1>
+    <div class="container">
+        <div class="Lcontainer">
+            <table>
+                <thead>
+                    <caption>Users Registered</caption>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Full Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for userProfiles in userProfile %}
+                    <tr>
+                        <td>{{ userProfiles[0] }}</td> <!--user ID-->
+                        <td>{{ userProfiles[1] }}</td> <!--full name-->
+                        <td>{{ userProfiles[2] }}</td> <!--phone Number-->
+                        <td>{{ userProfiles[3] }}</td> <!--email-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="Rcontainer">
+            <!-- Display service profiles -->
+            <table>
+                <thead>
+                    <caption> Service Providers Registered</caption>
+                    <tr>
+                        <th>Service Provider ID</th>
+                        <th>Business Name</th>
+                        <th>UEN Number</th>
+                        <th>Business Email</th>
+                        <th>Business Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for serviceProviderProfiles in serviceProviderProfile %}
+                    <tr>
+                        <td>{{ serviceProviderProfiles[0] }}</td> <!--Service Provider ID-->
+                        <td>{{ serviceProviderProfiles[1] }}</td> <!--Business name-->
+                        <td>{{ serviceProviderProfiles[2] }}</td> <!--UEN Number-->
+                        <td>{{ serviceProviderProfiles[3] }}</td> <!--email-->
+                        <td>{{ serviceProviderProfiles[4] }}</td> <!--Phone Number-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

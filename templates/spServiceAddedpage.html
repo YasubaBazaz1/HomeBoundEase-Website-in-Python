@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #ffffff; 
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-name {
+  font-size: 25px;
+}
+
+.user-info {
+  font-size: 25px;
+}
+
+.navbar {
+  background-color: #333;
+  height: 80px; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center; /* Align items horizontally at the center */
+  align-items: center; /* Align items vertically at the center */
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 20px; 
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 30px;
+}
+
+.nav-links li a:hover {
+  background-color: #555;
+}
+h3 {
+        text-align: center;
+    }
+    .img-container {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Horizontally center */
+        align-items: center; /* Vertically center */
+        height: 100vh; /* Set height to viewport height for vertical centering */
+    }
+
+    .img {
+        aspect-ratio: 1.30;
+        object-fit: auto;
+        object-position: center;
+        max-width: 100%; /* Ensure image doesn't exceed container width */
+        max-height: 100%; /* Ensure image doesn't exceed container height */
+    }
+</style>
+<body>
+  <header>
+    <div class="app-name">Homebound Ease</div>
+    <div class="user-info">Welcome, {{session['businessName']}}!</div>
+  </header>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="{{ url_for('spDashboard') }}">Dashboard</a></li>
+      <li><a href="{{ url_for('spMyProfile') }}">My Profile</a></li>
+      <li><a href="{{ url_for('addServices') }}">Add Services</a></li>
+      <li><a href="{{ url_for('spContactUsPage') }}">Contact Us</a></li>
+      <li><a href="{{ url_for('logout') }}">Logout</a></li>
+  </nav>
+  <br/>
+     <br/>
+     <h3> The service has been added!</h3>
+     <div class="img-container">
+      <br>
+      <br>
+      <img src="{{url_for('static', filename='tick.png')}}" class="img" />
+  </div>
+   </body>
+</body>
+</html>

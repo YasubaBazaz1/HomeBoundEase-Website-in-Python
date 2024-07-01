@@ -1,0 +1,191 @@
+<div class="div">
+    <div class="div-2">
+      <div class="div-3">
+        <div class="column">
+          <img
+            src="{{url_for('static', filename='bg.png')}}"
+            class="img"
+          />
+        </div>
+        <div class="column-2">
+          <div class="rcontainer">
+            <div class="title">HomeBound Ease</div>
+            <form id="userSignUp_form" action="{{ url_for('userSignUp') }}" method="post" >
+                   
+                <br />
+                <div class="usuformContainer">
+                    <label for="FullName">Full Name:</label>
+                    <input id="userFullName" class="field_class" name="userFullName" type="text" placeholder="enter your full name" required autofocus>
+                    <br>
+                    <label for="phoneNum">Phone Number:</label>
+                    <input id="userPhoneNum" class="field_class" name="userPhoneNum" type="int" placeholder="enter your phone number" required autofocus>
+                    <br>
+                    <label for="userGender">Gender:</label>
+                    <select id="userGender" class="field_class" name="userGender" required>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                    <br>
+                    <label for="userEmail">Email:</label>
+                    <input id="userEmail" class="field_class" name="userEmail" type="email" placeholder="Enter your email address" required autofocus>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input id="userPassword" class="field_class" name="userPassword" type="password" placeholder="enter your password"required>
+                    <div class="msg">{{ msg }}</div>
+                </div>
+                <button class="signupbutton" type="submit" form="userSignUp_form">Sign Up</button>
+            </form>
+            <div class = "div-7">
+              <a href="{{ url_for('login') }}">Already have an account? Login instead.</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .div {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .div-2 {
+      background-color: #fff;
+      width: 100%;
+      padding: 0 50px 0 1px;
+    }
+    @media (max-width: 991px) {
+      .div-2 {
+        max-width: 100%;
+        padding-right: 20px;
+      }
+    }
+    .div-3 {
+      gap: 20px;
+      display: flex;
+    }
+    @media (max-width: 991px) {
+      .div-3 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 73%;
+      margin-left: 0px;
+    }
+    @media (max-width: 991px) {
+      .column {
+        width: 100%;
+      }
+    }
+    #userGender {
+    height: 40px;
+    width:100%;
+    border-radius: 10px;
+    } 
+    .img {
+      aspect-ratio: 1.30;
+      object-fit: auto;
+      object-position: center;
+      width: 100%;
+      flex-grow: 1;
+    }
+    @media (max-width: 991px) {
+      .img {
+        max-width: 100%;
+      }
+    }
+    .column-2 {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 27%;
+      margin-left: 20px;
+    }
+    @media (max-width: 991px) {
+      .column-2 {
+        width: 100%;
+      }
+    }
+    .rcontainer {
+      display: flex;
+      margin-top: 50px;
+      flex-direction: column;
+      color: #000;
+      font-weight: 400;
+      text-align: center;
+    }
+    @media (max-width: 991px) {
+      .rcontainer {
+        margin-top: 40px;
+      }
+    }
+    .title {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      margin-right: 40px;
+      margin-bottom: 15px;
+      font: 40px sans-serif;
+    }
+    @media (max-width: 991px) {
+      .title {
+        margin-right: 10px;
+      }
+    }
+    .usuformContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .usuformContainer label {
+      display: inline-block;
+      margin-right: 5px; 
+      font-family: sans-serif; 
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .usuformContainer input {
+      height: 40px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .div-4{
+      position: absolute; 
+      right: 15; 
+      color:blue;
+    }
+
+    .signupbutton {
+      all: unset;
+      position: center;
+      margin-top: 30px;
+      appearance: none;
+      background-color: #ffd7c4;
+      color: rgb(0, 0, 0);
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: "sans-serif", sans-serif;
+      padding: 15px 25px;
+    }
+    .div-7 {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: start;
+      margin-top: 1px;
+      padding: 60px 0 20 40px;
+      font: 20px sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-7 {
+        margin-top: 40px;
+        padding: 40px 0 0 20px;
+      }
+    }
+  </style>
+ 

@@ -1,0 +1,178 @@
+<div class="div">
+    <div class="div-2">
+      <div class="div-3">
+        <div class="column">
+          <img
+            src="{{url_for('static', filename='bg.png')}}"
+            class="img"
+          />
+        </div>
+        <div class="column-2">
+          <div class="rcontainer">
+            <div class="title">HomeBound Ease</div>
+            <form id="userLogin_form" action="{{ url_for('login') }}" method="post" >
+                <br/>
+                <div class="formContainer">
+                    <label for="userEmail">Email: </label>
+                    <input id="userEmail" class="field_class" name="userEmail" type="email" placeholder="enter your email address" required autofocus>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input id="password" class="field_class" name="password" type="password" placeholder="enter your password"required>
+                    <div class="msg" style = 'color : red' >{{ msg }}</div>
+                </div>
+                <div class="div-4"><a href="{{ url_for('userForgotPassword') }}"> Forgot Password? </a></div>
+                <button class="loginbutton" type="submit" form="userLogin_form">Login</button>
+            </form>
+            <div class="div-7">
+                Don't have an account? 
+              <a href="{{ url_for('userSignUp') }}">Sign up! </a>
+              </br>
+              </br>
+              <a href="{{ url_for('spLoginPage') }}">Login as a Service Provider </a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .div {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .div-2 {
+      background-color: #fff;
+      width: 100%;
+      padding: 0 50px 0 1px;
+    }
+    @media (max-width: 991px) {
+      .div-2 {
+        max-width: 100%;
+        padding-right: 20px;
+      }
+    }
+    .div-3 {
+      gap: 20px;
+      display: flex;
+    }
+    @media (max-width: 991px) {
+      .div-3 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 73%;
+      margin-left: 0px;
+    }
+    @media (max-width: 991px) {
+      .column {
+        width: 100%;
+      }
+    }
+    .img {
+      aspect-ratio: 1.30;
+      object-fit: auto;
+      object-position: center;
+      width: 100%;
+      flex-grow: 1;
+    }
+    @media (max-width: 991px) {
+      .img {
+        max-width: 100%;
+      }
+    }
+    .column-2 {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 27%;
+      margin-left: 20px;
+    }
+    @media (max-width: 991px) {
+      .column-2 {
+        width: 100%;
+      }
+    }
+    .rcontainer {
+      display: flex;
+      margin-top: 50px;
+      flex-direction: column;
+      color: #000;
+      font-weight: 400;
+      text-align: center;
+    }
+    @media (max-width: 991px) {
+      .rcontainer {
+        margin-top: 40px;
+      }
+    }
+    .title {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      margin-right: 40px;
+      margin-bottom: 30px;
+      font: 40px sans-serif;
+    }
+    @media (max-width: 991px) {
+      .title {
+        margin-right: 10px;
+      }
+    }
+    .formContainer {
+      display: flex;
+      flex-direction: column;
+
+    }
+    .formContainer label {
+      display: inline-block;
+      width: 20px; 
+      margin-right: 10px; 
+      font-family: sans-serif; 
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .formContainer input {
+      height: 50px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .div-4{
+      position: absolute; 
+      right: 15; 
+      color:blue;
+    }
+
+    .loginbutton {
+      all: unset;
+      position: center;
+      margin-top: 60px;
+      appearance: none;
+      background-color: #ffd7c4;
+      color: rgb(0, 0, 0);
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: "sans-serif", sans-serif;
+      padding: 15px 25px;
+    }
+    .div-7 {
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: start;
+      margin-top: 40px;
+      padding: 60px 0 20 40px;
+      font: 20px sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-7 {
+        margin-top: 40px;
+        padding: 40px 0 0 20px;
+      }
+    }
+  </style>
+ 

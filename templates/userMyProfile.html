@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeBound Ease</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+  }
+  header {
+      background-color: #ffffff; 
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .app-name {
+      font-size: 30px;
+  }
+
+  .user-info {
+      font-size: 30px;
+  }
+
+  .navbar {
+  background-color: #e2dddd;
+  height: 80px; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center; /* Align items horizontally at the center */
+  align-items: center; /* Align items vertically at the center */
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 20px; 
+}
+
+.nav-links li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 35px;
+}
+  .nav-links li a:hover {
+      background-color: #fdfdfd;
+  }
+  form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 650px; /* Adjust width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+  }
+
+  
+.group_container {
+  margin-bottom: 20px;
+}
+
+label {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+    input {
+        width: 100%;
+        padding: 20px;
+        margin-top: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .msg {
+        font-size: 18px;
+        color: red;
+        margin-bottom: 10px;
+    }
+
+    .edit_button {
+        background-color: #ffd7c4; /* Light orange */
+        border: none;
+        border-radius: 20px; /* Rounder corners */
+        color: black; /* Text color */
+        padding: 15px 30px; /* Adjusted padding */
+        font-size: 20px; /* Larger font size */
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .edit_button a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .edit_button:hover {
+        background-color: #ffa07a; /* Button background color on hover */
+    }
+    .field_class[readonly] {
+  background-color: #f2f2f2; /* Light gray background */
+  cursor: not-allowed; /* Change cursor to indicate non-interactivity */
+}
+
+</style>
+    <body>
+      <header>
+        <div class="app-name">Homebound Ease</div>
+        <div class="user-info">Welcome, {{session['username']}}!</div>
+      </header>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('userDashboard') }}">Dashboard</a></li>
+          <li><a href="{{ url_for('userHealthRecords') }}">Health Records</a></li>
+          <li><a href="{{ url_for('userMyProfile') }}">My Profile</a></li>
+          <li><a href="{{ url_for('userContactUsPage') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </nav>
+      <br>
+      <br>
+      <div class="container">
+        <div class="Lcontainer">
+          <form id="profile_edit" action="{{ url_for('userMyProfile') }}" method="POST" >
+            <div class="group_container">
+                <label for="fullname">Full Name:</label>
+                <input id="fullname" class="field_class" name="fullname" type="text" readonly value="{{ userProfile[1] }}">
+                <label for="gender">Gender:</label>
+                <input id="gender" class="field_class" name="gender" type="text" readonly value="{{ userProfile[3] }}">
+                <label for="email">Email: </label>
+                <input id="email" class="field_class" name="email" type="email" readonly value="{{ userProfile[4] }}">
+                <label for="phone">Phone Number:</label>
+                <input id="phone" class="field_class" name="phone" type="text" readonly value="{{ userProfile[2] }}">
+                <label for="password">Password: </label>
+                <input id="password" class="field_class" name="password" type="password" readonly value="{{ userProfile[5] }}">
+            </div>
+            <div class="msg">{{ msg }}</div>
+            <button class="edit_button" id='edit_button'>
+              <a href="{{ url_for('userUpdateMyProfile') }}">Update Profile</a>
+            </button>
+          </form>
+      </div>
+    </body>
+ </html>
